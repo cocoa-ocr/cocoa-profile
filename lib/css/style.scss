@@ -206,6 +206,11 @@ body {
 details.more {
   margin: 4px 0;
   summary {
+    list-style-type:none;
+    &::-webkit-details-marker{
+      /* Chrome */
+      display:none
+    }
     @include contents-center();
     @include content-text-func('middle');
     padding: 8px;
