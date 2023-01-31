@@ -1,0 +1,363 @@
+
+:root {
+  --primary: #f48fb1 !important;
+  --success:#f48fb1 !important;
+  --primary-dark: #ec407a;
+  --secondary: #9fa8da !important;
+  //--title-font: 'ZenMaruGothic';
+  --font: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Helvetica Neue", HelveticaNeue, YuGothic, "Yu Gothic Medium", "Yu Gothic", Verdana, Meiryo, sans-serif;
+  --bg-color: 159, 168, 218;
+  --red: #d32f2f;
+  --link-color: #0d47a1;
+  --link-color-bg: #bbdefb;
+  font-size: 62.5%;
+}
+
+// @font-face {
+//   font-family: 'Kaisei Opti';
+//   font-style: normal;
+//   font-weight: 400;
+//   src: url('../font/KaiseiOpti-Medium.ttf')
+// }
+
+
+// @font-face{
+//   font-family: 'ZenMaruGothic';
+//   font-style: normal;
+//   font-weight: 400;
+//   src: url('../font/ZenMaruGothic-Medium.ttf');
+// }
+
+/**mixins----- */
+@mixin content-text-func($size: 'middle') {
+  font-weight: 300;
+  letter-spacing: .16em;
+
+  @if $size == 'big' {
+    font-size: 2rem;
+  } @else if $size == 'middle' {
+    font-size: 1.5rem;
+  } @else if $size == 'mill' {
+    font-size: 1rem;
+  } @else {
+    font-size: 1.3rem;
+  }
+  text-align: center;
+}
+
+
+@mixin hide() {
+  display: none;
+}
+
+@mixin hiding() {
+  transition: opacity 1s ease-out;
+  opacity: 0;
+}
+
+@mixin contents-center() {
+  align-items: flex-start;
+  display: flex;
+  justify-content: center;
+  margin:  0 auto;
+}
+
+/**end of mixins----- */
+
+
+* {
+  font-family: var(--font);
+}
+
+p {
+  @include content-text-func('small');
+  word-break: break-word;
+
+
+  &.caption {
+    @include content-text-func('mill');
+    word-break: break-word;
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
+
+  span.text-not-line {
+    text-decoration: line-through;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--link-color);
+
+    &:hover {
+      text-decoration: var(--link-color-bg) underline;
+    }
+  }
+}
+
+body { 
+  margin: 0;
+}
+
+
+
+.loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index:500;
+  background: #f48fb1;
+  display: flex;
+
+  &.is-hide-effect {
+    @include hiding();
+  }
+
+  &.is-hide {
+    @include hide();
+  }
+
+  .loading-text-area {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+
+    .loading-text {
+      word-break: keep-all;
+      position: relative;
+      @include content-text-func('big');
+
+      &::before {
+        content: '';
+        position: absolute;
+        background-color: #fff;
+        bottom: -5px;
+        width: 0px;
+        height: 1px;
+        left: 0;
+      }
+
+      border-right: 1px solid #fff;
+    }
+  }
+}
+
+body {
+  background-color: rgba(var(--bg-color), 0.3);
+}
+
+.headline-text {
+  font-family: var(--font);
+  @include content-text-func('big');
+  margin-bottom: 0;
+
+  &.in-header {
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
+    padding:  16px;
+    color: var(--primary);
+    text-shadow: 1px 1px 1px var(--secondary);  
+  }
+}
+
+.headline-content {
+  background-color: var(--primary);
+  padding: 16px;
+  max-width: 400px;
+  border-radius: 8px;
+  @include contents-center();
+
+  .content-text {
+    color: #fff;
+    line-height: 1.05;
+    padding-left: 3px;
+    @include content-text-func('big');
+  }
+
+  .material-icons {
+    color: #fff;
+  }
+}
+
+.sub-headline {
+  @include contents-center();
+
+  .content-text {
+    @include content-text-func('middle');
+    line-height: 1.7;
+    padding-left: 4px;
+  }
+
+  .material-icons {
+    color: var(--secondary);
+  }
+}
+
+.more-area {
+  margin: 16px;
+  .center {
+    @include contents-center();
+  }
+}
+
+
+details.more {
+  margin: 4px 0;
+  summary {
+    @include contents-center();
+    @include content-text-func('middle');
+    padding: 8px;
+    list-style: none;
+    position: relative;
+    color: var(--primary-dark);
+    background-color: #fff;
+    transition: background 400ms;
+    border: 0;
+    cursor: pointer;
+    border-radius: 8px;
+  
+    &:hover {
+      background-color: rgba(244,143,177,0.2);
+      
+    }
+  
+    &:active {
+      background-color: #d32f2f;
+      transition: background-color 1s linear;
+    }
+
+    &:before {
+      font-family: 'Material Icons';
+      content: '\e313';
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    // &:after {
+    //   font-family: 'Material Icons';
+    //   content: '\e316';
+    //   font-size: 16px;
+    // }
+  }
+
+  .summary-content {
+    @include contents-center();
+    display: block;
+    padding: 8px;
+    overflow-wrap: break-word;;
+
+    // p {
+    //   @include content-text-func('smaill');
+    // }
+
+  }
+
+  &[open] {
+    summary {
+      &::before {
+        font-family: 'Material Icons';
+        content: '\e316';
+        font-size: 16px;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+.button {
+  @include content-text-func('middle');
+  padding: 8px;
+  list-style: none;
+  position: relative;
+  color: var(--primary-dark);
+  background-color: #fff;
+  transition: background 400ms;
+  border: 0;
+  cursor: pointer;
+  border-radius: 8px;
+
+  &:hover {
+    background-color: rgba(244,143,177,0.2);
+    
+  }
+
+  &:active {
+    background-color: #d32f2f;
+    transition: background-color 1s linear;
+  }
+}
+
+
+
+
+
+.highlight {
+  color: var(--red);
+}
+
+.title-en {
+  font-family: var(--font);
+}
+
+.header {
+  position: relative;
+}
+
+.header-image {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  width: 100%;
+  border-radius: 4px;
+}
+
+.card {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  padding: 32px;
+  background-color: #fff;
+  border-radius: 4px;
+  margin: 8px 0;
+}
+
+.sns-area {
+  @include contents-center();
+
+  .icons {
+    padding: 4px;
+    font-size: 4rem;
+
+    &.fa-twitter {
+     color: #1DA1F2; 
+    }
+  }
+}
+
+.twitter-timeline.twitter-timeline-rendered {
+  display: none !important;
+
+  &.show {
+    display: flex !important;
+  }
+}
+
+.is-hide {
+  display: none;
+}
+
+
+
+.container {
+  flex-grow: 1;
+  margin: 0 auto;
+  position: relative;
+  width: auto;
+  padding: 32px; //TODO: スマホだとちょっと狭い 
+}
+
+
+.column {
+  display: block;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: .75rem
+}
