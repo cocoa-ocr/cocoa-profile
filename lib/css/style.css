@@ -206,6 +206,7 @@ details.more {
 }
 
 details.more summary {
+  list-style-type: none;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -230,6 +231,11 @@ details.more summary {
   border: 0;
   cursor: pointer;
   border-radius: 8px;
+}
+
+details.more summary::-webkit-details-marker {
+  /* Chrome */
+  display: none;
 }
 
 details.more summary:hover {
