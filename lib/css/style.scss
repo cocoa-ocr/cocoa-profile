@@ -4,7 +4,6 @@
   --success:#f48fb1 !important;
   --primary-dark: #ec407a;
   --secondary: #9fa8da !important;
-  //--title-font: 'ZenMaruGothic';
   --font: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Helvetica Neue", HelveticaNeue, YuGothic, "Yu Gothic Medium", "Yu Gothic", Verdana, Meiryo, sans-serif;
   --bg-color: 159, 168, 218;
   --red: #d32f2f;
@@ -12,21 +11,6 @@
   --link-color-bg: #bbdefb;
   font-size: 62.5%;
 }
-
-// @font-face {
-//   font-family: 'Kaisei Opti';
-//   font-style: normal;
-//   font-weight: 400;
-//   src: url('../font/KaiseiOpti-Medium.ttf')
-// }
-
-
-// @font-face{
-//   font-family: 'ZenMaruGothic';
-//   font-style: normal;
-//   font-weight: 400;
-//   src: url('../font/ZenMaruGothic-Medium.ttf');
-// }
 
 /**mixins----- */
 @mixin content-text-func($size: 'middle') {
@@ -46,8 +30,12 @@
 }
 
 
-@mixin hide() {
-  display: none;
+@mixin hide($isImporttant: false) {
+  @if ($isImporttant) {
+    display: none !important;
+  } @else {
+    display: none;
+  }
 }
 
 @mixin hiding() {
@@ -65,9 +53,17 @@
 /**end of mixins----- */
 
 
+
 * {
   font-family: var(--font);
 }
+
+body { 
+  margin: 0;
+}
+
+
+
 
 p {
   @include content-text-func('small');
@@ -93,10 +89,6 @@ p {
       text-decoration: var(--link-color-bg) underline;
     }
   }
-}
-
-body { 
-  margin: 0;
 }
 
 
@@ -239,11 +231,6 @@ details.more {
       font-size: 16px;
       line-height: 1.5;
     }
-    // &:after {
-    //   font-family: 'Material Icons';
-    //   content: '\e316';
-    //   font-size: 16px;
-    // }
   }
 
   .summary-content {
@@ -251,11 +238,6 @@ details.more {
     display: block;
     padding: 8px;
     overflow-wrap: break-word;;
-
-    // p {
-    //   @include content-text-func('smaill');
-    // }
-
   }
 
   &[open] {
@@ -301,10 +283,6 @@ details.more {
   color: var(--red);
 }
 
-.title-en {
-  font-family: var(--font);
-}
-
 .header {
   position: relative;
 }
@@ -336,19 +314,17 @@ details.more {
   }
 }
 
-.twitter-timeline.twitter-timeline-rendered {
-  display: none !important;
+.twitter-timeline {
+  @include hide();
 
-  &.show {
-    display: flex !important;
+  &.twitter-timeline-rendered {
+    @include hide(true);
+  
+    &.show {
+      display: flex !important;
+    }
   }
 }
-
-.is-hide {
-  display: none;
-}
-
-
 
 .container {
   flex-grow: 1;

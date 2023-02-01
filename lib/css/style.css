@@ -17,6 +17,10 @@
   font-family: var(--font);
 }
 
+body {
+  margin: 0;
+}
+
 p {
   font-weight: 300;
   letter-spacing: .16em;
@@ -47,10 +51,6 @@ p a {
 p a:hover {
   -webkit-text-decoration: var(--link-color-bg) underline;
           text-decoration: var(--link-color-bg) underline;
-}
-
-body {
-  margin: 0;
 }
 
 .loading {
@@ -309,10 +309,6 @@ details.more[open] summary::before {
   color: var(--red);
 }
 
-.title-en {
-  font-family: var(--font);
-}
-
 .header {
   position: relative;
 }
@@ -355,6 +351,10 @@ details.more[open] summary::before {
   color: #1DA1F2;
 }
 
+.twitter-timeline {
+  display: none;
+}
+
 .twitter-timeline.twitter-timeline-rendered {
   display: none !important;
 }
@@ -363,10 +363,6 @@ details.more[open] summary::before {
   display: -webkit-box !important;
   display: -ms-flexbox !important;
   display: flex !important;
-}
-
-.is-hide {
-  display: none;
 }
 
 .container {
