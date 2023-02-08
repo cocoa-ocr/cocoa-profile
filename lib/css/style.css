@@ -19,6 +19,7 @@
 
 body {
   margin: 0;
+  background-color: rgba(var(--bg-color), 0.3);
 }
 
 p {
@@ -103,10 +104,6 @@ p a:hover {
   width: 0px;
   height: 1px;
   left: 0;
-}
-
-body {
-  background-color: rgba(var(--bg-color), 0.3);
 }
 
 .headline-text {
@@ -351,6 +348,24 @@ details.more[open] summary::before {
   color: #1DA1F2;
 }
 
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+  width: 5px;
+  height: 5px;
+  background: #e0e0e0;
+  opacity: 0.04;
+  -webkit-box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+          box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+}
+
 .twitter-timeline {
   display: none;
 }
@@ -363,6 +378,56 @@ details.more[open] summary::before {
   display: -webkit-box !important;
   display: -ms-flexbox !important;
   display: flex !important;
+}
+
+.gallery-area {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8px;
+}
+
+.gallery-area .image-select-area {
+  width: 25%;
+  max-height: 100vh;
+  overflow-y: scroll;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 4px;
+}
+
+@media (max-width: 767px) {
+  .gallery-area .image-select-area {
+    width: 100%;
+  }
+}
+
+.gallery-area .image-select-area .lazy-image {
+  width: 100%;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  cursor: pointer;
+}
+
+.gallery-area .image-select-area .lazy-image.loading-image {
+  opacity: 0;
+}
+
+.gallery-area .preview-image {
+  width: 75%;
+}
+
+@media (max-width: 767px) {
+  .gallery-area .preview-image {
+    width: 0%;
+  }
+}
+
+.gallery-area .preview-image img {
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .container {
