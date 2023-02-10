@@ -53,6 +53,21 @@
 /**end of mixins----- */
 
 
+/** keyframes */
+
+@keyframes fall{
+  0%{
+    top: -250px; /*初期位置*/
+  }
+  100% {
+    top: calc(100% + 250px); /*最終地点*/
+  }
+}
+
+/** end of keyframes */
+
+
+
 
 * {
   font-family: var(--font);
@@ -381,6 +396,86 @@ details.more {
     }
   }
 }
+
+
+.snow-balls {
+  display: none;
+
+  &.snowing {
+    display: block;
+  }
+  .snow {
+    position: fixed;
+    top: -250px;
+    left: 0;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 0.9;
+    z-index: 500;
+
+    &.small {
+      width: 10px;
+      height: 10px;
+      filter: blur(2px);
+      box-shadow:
+        5vw -40px 0 #fff,
+        10vw 150px #fff,
+        15vw -230px #fff,
+        22vw 240px #fff,
+        30vw 120px #fff,
+        35vw -180px #fff,
+        44vw 240px #fff,
+        50vw 0 #fff,
+        60vw 180px #fff,
+        68vw 40px #fff,
+        74vw -130px #fff,
+        81vw -240px #fff,
+        88vw 100px #fff,
+        95vw 60px #fff;
+      animation: fall 12s linear infinite;
+    }
+
+    &.small-slowly {
+      width: 10px;
+      height: 10px;
+      filter: blur(2px); 
+      box-shadow:
+        7vw 220px 0 #fff,
+        35vw 20px #fff,
+        68vw 100px #fff,
+        93vw -190px #fff;
+      animation: fall 12.5s linear infinite;
+      animation-delay: 6s; 
+    }
+
+    &.small-medium {
+      width: 14px;
+      height: 14px;
+      filter: blur(3px); 
+      box-shadow:
+        12vw 5px 0 #fff,
+        32vw -100px #fff,
+        45vw -180px #fff,
+        68vw 40px #fff,
+        77vw 65px #fff,
+        94vw 230px #fff;
+      animation: fall 10s linear infinite; 
+      animation-delay: 6s;
+    }
+
+    &.big {
+      width: 20px;
+      height: 20px;
+      filter: blur(8px);
+      box-shadow:
+        40vw -200px #fff,
+        80vw 230px #fff;
+      animation: fall 7s linear infinite;
+      animation-delay: 4s;
+    }
+  }
+}
+
 
 .container {
   flex-grow: 1;

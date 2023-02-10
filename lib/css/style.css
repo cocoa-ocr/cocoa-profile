@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --primary: #f48fb1 !important;
   --success:#f48fb1 !important;
@@ -13,6 +14,29 @@
 
 /**mixins----- */
 /**end of mixins----- */
+/** keyframes */
+@-webkit-keyframes fall {
+  0% {
+    top: -250px;
+    /*初期位置*/
+  }
+  100% {
+    top: calc(100% + 250px);
+    /*最終地点*/
+  }
+}
+@keyframes fall {
+  0% {
+    top: -250px;
+    /*初期位置*/
+  }
+  100% {
+    top: calc(100% + 250px);
+    /*最終地点*/
+  }
+}
+
+/** end of keyframes */
 * {
   font-family: var(--font);
 }
@@ -428,6 +452,74 @@ details.more[open] summary::before {
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.snow-balls {
+  display: none;
+}
+
+.snow-balls.snowing {
+  display: block;
+}
+
+.snow-balls .snow {
+  position: fixed;
+  top: -250px;
+  left: 0;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.9;
+  z-index: 500;
+}
+
+.snow-balls .snow.small {
+  width: 10px;
+  height: 10px;
+  -webkit-filter: blur(2px);
+          filter: blur(2px);
+  -webkit-box-shadow: 5vw -40px 0 #fff, 10vw 150px #fff, 15vw -230px #fff, 22vw 240px #fff, 30vw 120px #fff, 35vw -180px #fff, 44vw 240px #fff, 50vw 0 #fff, 60vw 180px #fff, 68vw 40px #fff, 74vw -130px #fff, 81vw -240px #fff, 88vw 100px #fff, 95vw 60px #fff;
+          box-shadow: 5vw -40px 0 #fff, 10vw 150px #fff, 15vw -230px #fff, 22vw 240px #fff, 30vw 120px #fff, 35vw -180px #fff, 44vw 240px #fff, 50vw 0 #fff, 60vw 180px #fff, 68vw 40px #fff, 74vw -130px #fff, 81vw -240px #fff, 88vw 100px #fff, 95vw 60px #fff;
+  -webkit-animation: fall 12s linear infinite;
+          animation: fall 12s linear infinite;
+}
+
+.snow-balls .snow.small-slowly {
+  width: 10px;
+  height: 10px;
+  -webkit-filter: blur(2px);
+          filter: blur(2px);
+  -webkit-box-shadow: 7vw 220px 0 #fff, 35vw 20px #fff, 68vw 100px #fff, 93vw -190px #fff;
+          box-shadow: 7vw 220px 0 #fff, 35vw 20px #fff, 68vw 100px #fff, 93vw -190px #fff;
+  -webkit-animation: fall 12.5s linear infinite;
+          animation: fall 12.5s linear infinite;
+  -webkit-animation-delay: 6s;
+          animation-delay: 6s;
+}
+
+.snow-balls .snow.small-medium {
+  width: 14px;
+  height: 14px;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-box-shadow: 12vw 5px 0 #fff, 32vw -100px #fff, 45vw -180px #fff, 68vw 40px #fff, 77vw 65px #fff, 94vw 230px #fff;
+          box-shadow: 12vw 5px 0 #fff, 32vw -100px #fff, 45vw -180px #fff, 68vw 40px #fff, 77vw 65px #fff, 94vw 230px #fff;
+  -webkit-animation: fall 10s linear infinite;
+          animation: fall 10s linear infinite;
+  -webkit-animation-delay: 6s;
+          animation-delay: 6s;
+}
+
+.snow-balls .snow.big {
+  width: 20px;
+  height: 20px;
+  -webkit-filter: blur(8px);
+          filter: blur(8px);
+  -webkit-box-shadow: 40vw -200px #fff, 80vw 230px #fff;
+          box-shadow: 40vw -200px #fff, 80vw 230px #fff;
+  -webkit-animation: fall 7s linear infinite;
+          animation: fall 7s linear infinite;
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
 }
 
 .container {
