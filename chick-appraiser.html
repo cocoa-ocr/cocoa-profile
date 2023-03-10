@@ -1,0 +1,97 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Cocoa Official Fun Site | ひよこ鑑定士ゲーム</title>
+  <meta name="description" content="天才プログラマー、ココアちゃんのファンサイトです。ひよこ鑑定士ゲーム">
+  <meta name="author" content="Cocoa-Fun">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nikukyu.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cherry+Swash&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./lib/css/style.css">
+  <script type="text/javascript" src="http://twitter.com/intent/tweet?http://platform.twitter.com/widgets.js"></script>
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="apple-touch-icon" type="image/png" href="./apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="./icon-192x192.png">
+
+  <meta property="og:title" content="スーパープログラマー、ココアちゃんのファインサイト">
+  <meta property="og:description" content="世界一かわいいココアちゃんの魅力が詰まったファンサイト！">
+  <meta property="og:url" content="https://cocoa-ocr.github.io/cocoa-profile/">
+  <meta property="og:image" content="./lib/img/header.png">
+</head>
+
+
+<body>
+  <!-- <div class="loading">
+    <div class="loading-text-area">
+      <span class="loading-text">Loading...</span>
+    </div>
+  </div> -->
+  <div class="container">
+    <div class="snow-balls">
+      <div class="snow small"></div>
+      <div class="snow small-slowly"></div>
+      <div class="snow small-medium"></div>
+      <div class="snow big"></div>
+    </div>
+    <main>
+      <div class="header">
+        <img class="header-image" src="./lib/img/header.png">
+        <h2 class="headline-text in-header">ひよこ鑑定士ゲーム.</h2>
+      </div>
+      <div id="game-area-position"></div>
+      <div class="card">
+        <h3 class="headline-text">ひよこ鑑定士ゲーム。</h3>
+        <p>ひよこ鑑定士となったココアちゃん！？その仕事っぷりをあなたも体験しよう。</p>
+
+        <div class="game-area">
+          <div class="game-window">
+            <h2 class="headline-text game-title">ひよこ鑑定士ゲーム.</h2>
+            <div class="count is-hide">3</div>
+            <div class="remaing-count is-hide">
+              残り時間<span id="timer">30</span>秒
+            </div>
+            <div class="chick-image-area tooltip-parent">
+              <div id="answer-text" class="tooltip is-hide">
+                <p>うーん！</p>
+                <p>これはひよこ！</p>
+              </div>
+              <img id="chick-cocoa" src="./lib/img/chick-cocoa.png" />
+            </div>
+            <div id="question-text">
+            </div>
+            <div class="result-area is-hide">
+              <p>あなたの回答数: <span id="question-count">100</span>問</p>
+              <p>あなたの正解数: <span id="answer-count">100</span>問</p>
+              <p>正解率: <span id="answer-rate">100</span>%</p>
+              <a id="share-link"href="">
+                <button class="button">このページをシェア</button>
+              </a>
+            </div>
+            
+            <div class="game-button-in-window is-hide">
+              <button id="isChick"class="secondary-button">ひよこ！</button>
+              <button id="isNotChick"class="secondary-button">ニセモノ！</button>
+            </div>
+          </div>
+          <div class="game-button-area">
+            <button id="gameStart"class="button">ゲームスタート！</button>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+
+  </div>
+  <script src="./lib/js/chick-appraiser.js"></script>
+</body>
+
+</html>

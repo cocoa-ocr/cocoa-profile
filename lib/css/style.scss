@@ -4,6 +4,8 @@
   --success:#f48fb1 !important;
   --primary-dark: #ec407a;
   --secondary: #9fa8da !important;
+  --secondary-dark: #5c6bc0 !important;
+  --secondary-active: #7986cb !important;
   --font: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Helvetica Neue", HelveticaNeue, YuGothic, "Yu Gothic Medium", "Yu Gothic", Verdana, Meiryo, sans-serif;
   --bg-color: 159, 168, 218;
   --red: #d32f2f;
@@ -23,6 +25,8 @@
     font-size: 1.5rem;
   } @else if $size == 'mill' {
     font-size: 1rem;
+  } @else if $size == 'biggest' {
+    font-size: 5rem;
   } @else {
     font-size: 1.3rem;
   }
@@ -49,6 +53,30 @@
   justify-content: center;
   margin:  0 auto;
 }
+
+@mixin button-component() {
+  padding: 8px;
+  list-style: none;
+  position: relative;
+  border: 0;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 400ms;
+}
+
+@mixin disabled-button-theme() {
+  color: rgba(0, 0, 0, 0.26);
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+@mixin disabled-button {
+  cursor: not-allowed;
+  &:hover, &:focus {
+    @include disabled-button-theme();
+  }
+  @include disabled-button-theme();
+}
+
 
 /**end of mixins----- */
 
@@ -261,32 +289,42 @@ details.more {
   }
 }
 
+.secondary-button {
+  @include content-text-func('middle');
+  @include button-component();
+  background-color: var(--secondary);
+  color: #fff;
+
+  &:hover,&:focus {
+    background-color: var(--secondary-dark);
+  }
+  &:active {
+    background-color: var(--secondary-active);
+    transition: background-color 1s linear;
+  }
+  &:disabled {
+    @include disabled-button();
+  }
+}
+
 .button {
   @include content-text-func('middle');
-  padding: 8px;
-  list-style: none;
-  position: relative;
+  @include button-component();
   color: var(--primary-dark);
   background-color: #fff;
-  transition: background 400ms;
-  border: 0;
-  cursor: pointer;
-  border-radius: 8px;
-
-  &:hover {
+  &:hover,&:focus {
     background-color: rgba(244,143,177,0.2);
-    
   }
 
   &:active {
     background-color: #d32f2f;
     transition: background-color 1s linear;
   }
+
+  &:disabled {
+    @include disabled-button();
+  }
 }
-
-
-
-
 
 .highlight {
   color: var(--red);
@@ -318,8 +356,120 @@ details.more {
     font-size: 4rem;
 
     &.fa-twitter {
-     color: #1DA1F2; 
+      color: #1DA1F2; 
     }
+  }
+}
+
+.game-area {
+  width: 100%;
+  .game-window {
+    min-height: 500px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    margin: 16px;
+    padding: 32px 0;
+
+    .game-title {
+      color: var(--primary);
+      text-shadow: 1px 1px 1px var(--secondary);
+
+      &.is-hide {
+        @include hide();
+      }
+    }
+
+    .count,.remaing-count {
+      @include content-text-func('biggest');
+
+      &.is-hide {
+        @include hide();
+      }
+    }
+
+    .chick-image-area {
+      display: flex;
+      position: relative;
+      img {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 200px;
+        
+        &.fail {
+          filter: invert(100%) saturate(100%);
+        }
+        &.success {
+          filter: drop-shadow(4px 4px 10px #e2d06e);
+        }
+      }
+
+      .tooltip {
+        position: absolute;
+        left: 59%;
+
+        @media (max-width: 767px) {
+          left: 84%;
+        }
+
+        &.is-hide {
+          display: none;
+        }
+        top: 20%;
+        padding: 8px;
+        color: #fff;
+        border-radius: 5px;
+        background: var(--primary-dark);
+        min-width: 65px;
+        display: inline;
+
+        p {
+          margin: 0;
+        }
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 11%;
+          right: 95%;
+          border: 15px solid transparent;
+          border-top: 15px solid var(--primary-dark);
+          margin-left: -15px;
+          transform: rotateZ(90deg);
+        }
+      }
+    }
+
+    #question-text {
+      @include content-text-func('biggest');
+    }
+
+    .result-area {
+      @include content-text-func('biggest');
+      p,span {
+        font-family: var(--font);
+        @include content-text-func('big');
+      }
+      &.is-hide {
+        @include hide();
+      }
+    }
+  }
+
+  .game-button-in-window {
+    @include contents-center();
+    gap: 5rem;
+    margin: 16px;
+
+    &.is-hide {
+      @include hide();
+    }
+  }
+
+
+
+  .game-button-area {
+    @include contents-center();
+    margin-top:16px;
+    margin-bottom:16px;
   }
 }
 
