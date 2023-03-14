@@ -247,6 +247,21 @@ details.more {
     display: block;
     padding: 8px;
     overflow-wrap: break-word;;
+
+    ul {
+      display: grid;
+      justify-content: center;
+      font-weight: 300;
+      letter-spacing: .16em;
+      font-size: 1.3rem;
+      text-align: center;
+      word-break: break-word;
+
+      li {
+        margin: 8px 0;
+        text-align: left;
+      }
+    }
   }
 
   &[open] {
