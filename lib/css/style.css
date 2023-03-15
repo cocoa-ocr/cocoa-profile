@@ -292,6 +292,24 @@ details.more .summary-content {
   overflow-wrap: break-word;
 }
 
+details.more .summary-content ul {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 300;
+  letter-spacing: .16em;
+  font-size: 1.3rem;
+  text-align: center;
+  word-break: break-word;
+}
+
+details.more .summary-content ul li {
+  margin: 8px 0;
+  text-align: left;
+}
+
 details.more[open] summary::before {
   font-family: 'Material Icons';
   content: '\e316';
