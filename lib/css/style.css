@@ -207,6 +207,24 @@ p a:hover {
   color: var(--secondary);
 }
 
+.new-contents-area {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+  margin: 16px 0;
+}
+
+.new-contents-area.is-hide {
+  display: none;
+}
+
 .more-area {
   margin: 16px;
 }

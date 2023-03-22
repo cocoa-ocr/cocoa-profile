@@ -224,6 +224,15 @@ p {
   }
 }
 
+.new-contents-area {
+  @include contents-center();
+  margin: 16px 0;
+
+  &.is-hide {
+    display: none;
+  }
+}
+
 .more-area {
   margin: 16px;
   .center {
