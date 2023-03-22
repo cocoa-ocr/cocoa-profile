@@ -4,6 +4,8 @@
   --success:#f48fb1 !important;
   --primary-dark: #ec407a;
   --secondary: #9fa8da !important;
+  --secondary-dark: #5c6bc0 !important;
+  --secondary-active: #7986cb !important;
   --font: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Helvetica Neue", HelveticaNeue, YuGothic, "Yu Gothic Medium", "Yu Gothic", Verdana, Meiryo, sans-serif;
   --bg-color: 159, 168, 218;
   --red: #d32f2f;
@@ -205,6 +207,24 @@ p a:hover {
   color: var(--secondary);
 }
 
+.new-contents-area {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+  margin: 16px 0;
+}
+
+.new-contents-area.is-hide {
+  display: none;
+}
+
 .more-area {
   margin: 16px;
 }
@@ -317,6 +337,44 @@ details.more[open] summary::before {
   line-height: 1.5;
 }
 
+.secondary-button {
+  font-weight: 300;
+  letter-spacing: .16em;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 8px;
+  list-style: none;
+  position: relative;
+  border: 0;
+  cursor: pointer;
+  border-radius: 8px;
+  -webkit-transition: background 400ms;
+  transition: background 400ms;
+  background-color: var(--secondary);
+  color: #fff;
+}
+
+.secondary-button:hover, .secondary-button:focus {
+  background-color: var(--secondary-dark);
+}
+
+.secondary-button:active {
+  background-color: var(--secondary-active);
+  -webkit-transition: background-color 1s linear;
+  transition: background-color 1s linear;
+}
+
+.secondary-button:disabled {
+  cursor: not-allowed;
+  color: rgba(0, 0, 0, 0.26);
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.secondary-button:disabled:hover, .secondary-button:disabled:focus {
+  color: rgba(0, 0, 0, 0.26);
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
 .button {
   font-weight: 300;
   letter-spacing: .16em;
@@ -325,16 +383,16 @@ details.more[open] summary::before {
   padding: 8px;
   list-style: none;
   position: relative;
-  color: var(--primary-dark);
-  background-color: #fff;
-  -webkit-transition: background 400ms;
-  transition: background 400ms;
   border: 0;
   cursor: pointer;
   border-radius: 8px;
+  -webkit-transition: background 400ms;
+  transition: background 400ms;
+  color: var(--primary-dark);
+  background-color: #fff;
 }
 
-.button:hover {
+.button:hover, .button:focus {
   background-color: rgba(244, 143, 177, 0.2);
 }
 
@@ -342,6 +400,17 @@ details.more[open] summary::before {
   background-color: #d32f2f;
   -webkit-transition: background-color 1s linear;
   transition: background-color 1s linear;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  color: rgba(0, 0, 0, 0.26);
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.button:disabled:hover, .button:disabled:focus {
+  color: rgba(0, 0, 0, 0.26);
+  background-color: rgba(0, 0, 0, 0.12);
 }
 
 .highlight {
@@ -388,6 +457,159 @@ details.more[open] summary::before {
 
 .sns-area .icons.fa-twitter {
   color: #1DA1F2;
+}
+
+.game-area {
+  width: 100%;
+}
+
+.game-area .game-window {
+  min-height: 500px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  margin: 16px;
+  padding: 32px 0;
+}
+
+.game-area .game-window .game-title {
+  color: var(--primary);
+  text-shadow: 1px 1px 1px var(--secondary);
+}
+
+.game-area .game-window .game-title.is-hide {
+  display: none;
+}
+
+.game-area .game-window .count, .game-area .game-window .remaing-count {
+  font-weight: 300;
+  letter-spacing: .16em;
+  font-size: 5rem;
+  text-align: center;
+}
+
+.game-area .game-window .count.is-hide, .game-area .game-window .remaing-count.is-hide {
+  display: none;
+}
+
+.game-area .game-window .chick-image-area {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.game-area .game-window .chick-image-area img {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 200px;
+}
+
+.game-area .game-window .chick-image-area img.fail {
+  -webkit-filter: invert(100%) saturate(100%);
+          filter: invert(100%) saturate(100%);
+}
+
+.game-area .game-window .chick-image-area img.success {
+  -webkit-filter: drop-shadow(4px 4px 10px #e2d06e);
+          filter: drop-shadow(4px 4px 10px #e2d06e);
+}
+
+.game-area .game-window .chick-image-area .tooltip {
+  position: absolute;
+  left: 59%;
+  top: 20%;
+  padding: 8px;
+  color: #fff;
+  border-radius: 5px;
+  background: var(--primary-dark);
+  min-width: 65px;
+  display: inline;
+}
+
+@media (max-width: 767px) {
+  .game-area .game-window .chick-image-area .tooltip {
+    left: 84%;
+  }
+}
+
+.game-area .game-window .chick-image-area .tooltip.is-hide {
+  display: none;
+}
+
+.game-area .game-window .chick-image-area .tooltip p {
+  margin: 0;
+}
+
+.game-area .game-window .chick-image-area .tooltip:before {
+  content: "";
+  position: absolute;
+  top: 11%;
+  right: 95%;
+  border: 15px solid transparent;
+  border-top: 15px solid var(--primary-dark);
+  margin-left: -15px;
+  -webkit-transform: rotateZ(90deg);
+          transform: rotateZ(90deg);
+}
+
+.game-area .game-window #question-text {
+  font-weight: 300;
+  letter-spacing: .16em;
+  font-size: 5rem;
+  text-align: center;
+}
+
+.game-area .game-window .result-area {
+  font-weight: 300;
+  letter-spacing: .16em;
+  font-size: 5rem;
+  text-align: center;
+}
+
+.game-area .game-window .result-area p, .game-area .game-window .result-area span {
+  font-family: var(--font);
+  font-weight: 300;
+  letter-spacing: .16em;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.game-area .game-window .result-area.is-hide {
+  display: none;
+}
+
+.game-area .game-button-in-window {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+  gap: 5rem;
+  margin: 16px;
+}
+
+.game-area .game-button-in-window.is-hide {
+  display: none;
+}
+
+.game-area .game-button-area {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 *::-webkit-scrollbar {
