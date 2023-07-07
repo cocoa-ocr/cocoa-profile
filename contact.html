@@ -41,13 +41,49 @@
       <div class="card">
         <h3 class="headline-text">お問い合わせ</h3>
         <p>会社にご質問やお仕事の依頼や、ご相談などにお問い合わせください。</p>
+        <form class="form" action="" method="post">
+          <label class="form-label">お名前</label>
+          <div class="form-area">
+            <input type="text" class="form-text" placeholder="テスト 太郎">
+          </div>
+
+          <label class="form-label">メールアドレス</label>
+          <div class="form-area">
+            <input type="email" class="form-text" placeholder="半角で入力してください。">
+          </div>
+
+          <label class="form-label">お問い合わせ項目</label>
+          <div class="inquiry">
+            <input type="radio" name="inquiry" value="1" class="inquiry-radio">見積もり等お仕事の依頼
+            <input type="radio" name="inquiry" value="2" class="inquiry-radio">採用について
+            <input type="radio" name="inquiry" value="3" class="inquiry-radio">その他お問い合わせに関して
+          </div>
+
+          <label class="form-label">貴社名</label>
+          <div class="form-area">
+            <input type="text" class="margin-bottom-0" placeholder="株式会社オブジェクティブコア">
+          </div>
+          <div align="left">企業様のお問い合わせのみご入力お願いします</div>
+          <!-- <div class="form-area">
+            <p>企業様のお問い合わせのみご入力お願いします</p>
+          </div> -->
+
+          <div class="form-area">
+            <input type="checkbox" id="privacy-policy">
+            <label class="privacy-policy">個人情報の取扱いに同意する</label>
+          </div>
+
+          <div class="form-area">
+            <button id="submit"class="button">送信</button>
+          </div>
+        </form>
       </div>
     </main>
   </div>
 
-  <script>
+  <!-- <script>
     window.onload = () => {
       location.href= './index.html';
     }
-  </script>
+  </script> -->
 </body>
