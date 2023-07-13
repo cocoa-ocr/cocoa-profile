@@ -48,11 +48,12 @@
           ご相談などにお問い合わせください。
         </p>
         <form
+          id="contactForm"
           class="form"
+          name="contactForm"
           method="post"
           action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScT2OA5XJT7OnhaP-7mRktvy51WS7POLk3k40aZAK-Zv9cnEA/formResponse"
           target="hiddenFrame"
-          onsubmit="submitted=true;"
         >
           <div class="form-area">
             <label class="form-label is-required">お名前</label>
@@ -117,7 +118,7 @@
           </div>
 
           <div class="submit-area">
-            <button type="submit" id="submit"class="button">送信</button>
+            <button type="button" id="submitButton" class="button">送信</button>
           </div>
         </form>
       </div>
