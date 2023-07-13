@@ -40,7 +40,10 @@
       </div>
       <div class="card">
         <h3 class="headline-text">お問い合わせ</h3>
-        <p>会社にご質問やお仕事の依頼や、ご相談などにお問い合わせください。</p>
+        <p>
+          会社へのご質問やお仕事の依頼、
+          ご相談などにお問い合わせください。
+        </p>
         <form class="form" action="" method="post">
           <div class="form-area">
             <label class="form-label">お名前</label>
@@ -55,27 +58,44 @@
           <div class="form-area">
             <div class="radio-area">
               <label class="form-label">お問い合わせ項目</label>
-              <label class="radio"><input type="radio" name="inquiry" value="1">見積もり等お仕事の依頼</label>
-              <label class="radio"><input type="radio" name="inquiry" value="2">採用について</label>
-              <label class="radio"><input type="radio" name="inquiry" value="3">その他お問い合わせに関して</label>
+              <label class="radio">
+                <input type="radio" name="inquiry" value="1">
+                <span>見積もり等お仕事の依頼</span>
+              </label>
+              <label class="radio">
+                <input type="radio" name="inquiry" value="2">
+                <span>採用について</span>
+              </label>
+              <label class="radio"><input type="radio" name="inquiry" value="3">
+                <span>その他お問い合わせに関して</span>
+              </label>
             </div>
+          </div>
+
+
+          <div class="form-area">
+            <label class="form-label">お問い合わせ内容</label>
+            <textarea class="textarea" name="contact"></textarea>
           </div>
 
           <div class="form-area">
             <label class="form-label">貴社名</label>
-            <input type="text" name="company-name" class="company-name" placeholder="株式会社オブジェクティブコア">
-          </div>
-          <div class="align-left">
-            <p>企業様のお問い合わせのみご入力お願いします</p>
+            <input type="text" name="company-name" class="form-text" placeholder="株式会社オブジェクティブコア">
+
+            <div class="caption-area">
+              <p class="caption text-left">企業様のお問い合わせのみご入力お願いします</p>
+            </div>
           </div>
 
-          <div class="privacy-policy">
-            <input type="checkbox" name="privacy-policy" id="privacy-policy">
-            <label for="privacy-policy">個人情報の取扱いに同意する</label>
+          <div class="form-area is-last">
+            <div class="checkbox-area">
+              <input type="checkbox" name="privacy-policy" id="privacy-policy">
+              <label for="privacy-policy">個人情報の取扱いに同意する</label>
+            </div>
           </div>
 
-          <div class="submit">
-            <button id="submit"class="button">送信</button>
+          <div class="submit-area">
+            <button type="submit" id="submit"class="button">送信</button>
           </div>
         </form>
       </div>
