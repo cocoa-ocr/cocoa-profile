@@ -28,7 +28,10 @@
   <meta name="tiwtter:title" content="スーパープログラマー、ココアちゃんのファンサイト">
   <meta name="twitter:description" content="世界一かわいいココアちゃんの魅力が詰まったファンサイト！">
   <meta name="twitter:image" content="https://cocoa-ocr.github.io/cocoa-profile/lib/img/header.png">
+
   <meta name="google-site-verification" content="5YmPsjiRp7sYXYhdzyXcEG6xGWOFTX41f9yJv7VVj1Q" />
+
+  <script src="./lib//js//validator.js"></script>
 </head>
 
 <body>
@@ -46,43 +49,49 @@
         </p>
         <form
           class="form"
-          action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScT2OA5XJT7OnhaP-7mRktvy51WS7POLk3k40aZAK-Zv9cnEA/formResponse"
           method="post"
+          action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScT2OA5XJT7OnhaP-7mRktvy51WS7POLk3k40aZAK-Zv9cnEA/formResponse"
           target="hiddenFrame"
           onsubmit="submitted=true;"
         >
           <div class="form-area">
             <label class="form-label">お名前</label>
-            <input type="text" id="name" name="entry.1539415956" class="form-text" placeholder="テスト 太郎">
+            <input type="text" id="name"  class="form-text" name="entry.1539415956" placeholder="テスト 太郎">
+            <div class="caption-area">
+              <p id="nameError" class="caption text-left error-message">お名前を入力してください。</p>
+            </div>
           </div>
 
           <div class="form-area">
             <label class="form-label">メールアドレス</label>
-            <input type="email" id="email" name="entry.558386049" class="form-text" placeholder="半角で入力してください。">
+            <input type="email" id="email"  class="form-text" name="entry.558386049" placeholder="半角で入力してください。">
+            <p id="emailError" class="caption text-left error-message">メールアドレスを入力してください。</p>
           </div>
 
           <div class="form-area">
             <div class="radio-area">
               <label class="form-label">お問い合わせ項目</label>
               <label class="radio">
-                <input type="radio" id="type-estimate" name="entry.2130155710" value="1">
+                <input type="radio" id="type-estimate" name="entry.2130155710" value="見積もり等お仕事の依頼">
                 <span>見積もり等お仕事の依頼</span>
               </label>
               <label class="radio">
-                <input type="radio" id="type-recruit" name="entry.2130155710" value="2">
+                <input type="radio" id="type-recruit" name="entry.2130155710" value="採用について">
                 <span>採用について</span>
               </label>
               <label class="radio">
-                <input type="radio" id="type-other" name="entry.2130155710" value="3">
+                <input type="radio" id="type-other" name="entry.2130155710" value="その他お問い合わせに関して">
                 <span>その他お問い合わせに関して</span>
               </label>
+              <p id="typeError" class="caption text-left error-message">どれかひとつを選択してください。</p>
             </div>
           </div>
 
 
           <div class="form-area">
             <label class="form-label">お問い合わせ内容</label>
-            <textarea class="textarea" id="contact"name="entry.1273268723"></textarea>
+            <textarea class="textarea" name="entry.1273268723" id="contact"></textarea>
+            <p id="contactError" class="caption text-left error-message">お問い合わせ内容を入力してください。</p>
           </div>
 
           <div class="form-area">
@@ -96,8 +105,11 @@
 
           <div class="form-area is-last">
             <div class="checkbox-area">
-              <input type="checkbox" name="entry.1978479273" id="privacy-policy">
-              <label for="privacy-policy">個人情報の取扱いに同意する</label>
+              <div class="checkbox-item">
+                <input type="checkbox" name="entry.1978479273" id="privacyPolicy" value="個人情報の取扱いに同意する">
+                <label for="privacyPolicy">個人情報の取扱いに同意する</label>
+                <p id="privacyPolicyError" class="caption text-left error-message">個人情報の取り扱いに同意してください。</p>
+              </div>
             </div>
           </div>
 
@@ -108,15 +120,10 @@
       </div>
     </main>
 
-    
+
 
     <iframe name="hiddenFrame" id="hiddenFrame" style="display: none"></iframe>
   </div>
 
-
-  <!-- <script>
-    window.onload = () => {
-      location.href= './index.html';
-    }
-  </script> -->
+  <script src="lib/js/contact.js"></script>
 </body>

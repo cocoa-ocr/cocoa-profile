@@ -2,6 +2,7 @@
 :root {
   --primary: #f48fb1 !important;
   --success:#f48fb1 !important;
+  --error-background: #FAE9EF !important;
   --primary-dark: #ec407a;
   --secondary: #9fa8da !important;
   --secondary-dark: #5c6bc0 !important;
@@ -91,7 +92,12 @@
 
   &:focus-visible {
     outline: none;
-  } 
+  }
+
+  &.is-error {
+    border: 1px solid var(--red);
+    background-color: var(--error-background);
+  }
 }
 
 
@@ -136,6 +142,15 @@ p {
 
     &.text-left {
       @include content-text-func('mill', left);
+    }
+
+    &.error-message {
+      color: var(--red);
+      display: none;
+
+      &.is-error {
+        display: block;
+      }
     }
   }
 
@@ -754,11 +769,15 @@ details.more {
     font-size: 13px;
     display: flex;
     justify-content: center;
-    
-    input {
-      position: relative;
-      bottom: -1px;
-      accent-color: var(--primary-dark);
+
+    .checkbox-item {
+      display: block;
+      
+      input {
+        position: relative;
+        bottom: -1px;
+        accent-color: var(--primary-dark);
+      }
     }
   }
 
