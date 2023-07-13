@@ -44,29 +44,36 @@
           会社へのご質問やお仕事の依頼、
           ご相談などにお問い合わせください。
         </p>
-        <form class="form" action="" method="post">
+        <form
+          class="form"
+          action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScT2OA5XJT7OnhaP-7mRktvy51WS7POLk3k40aZAK-Zv9cnEA/formResponse"
+          method="post"
+          target="hiddenFrame"
+          onsubmit="submitted=true;"
+        >
           <div class="form-area">
             <label class="form-label">お名前</label>
-            <input type="text" name="name" class="form-text" placeholder="テスト 太郎">
+            <input type="text" id="name" name="entry.1539415956" class="form-text" placeholder="テスト 太郎">
           </div>
 
           <div class="form-area">
             <label class="form-label">メールアドレス</label>
-            <input type="email" name="email" class="form-text" placeholder="半角で入力してください。">
+            <input type="email" id="email" name="entry.558386049" class="form-text" placeholder="半角で入力してください。">
           </div>
 
           <div class="form-area">
             <div class="radio-area">
               <label class="form-label">お問い合わせ項目</label>
               <label class="radio">
-                <input type="radio" name="inquiry" value="1">
+                <input type="radio" id="type-estimate" name="entry.2130155710" value="1">
                 <span>見積もり等お仕事の依頼</span>
               </label>
               <label class="radio">
-                <input type="radio" name="inquiry" value="2">
+                <input type="radio" id="type-recruit" name="entry.2130155710" value="2">
                 <span>採用について</span>
               </label>
-              <label class="radio"><input type="radio" name="inquiry" value="3">
+              <label class="radio">
+                <input type="radio" id="type-other" name="entry.2130155710" value="3">
                 <span>その他お問い合わせに関して</span>
               </label>
             </div>
@@ -75,12 +82,12 @@
 
           <div class="form-area">
             <label class="form-label">お問い合わせ内容</label>
-            <textarea class="textarea" name="contact"></textarea>
+            <textarea class="textarea" id="contact"name="entry.1273268723"></textarea>
           </div>
 
           <div class="form-area">
             <label class="form-label">貴社名</label>
-            <input type="text" name="company-name" class="form-text" placeholder="株式会社オブジェクティブコア">
+            <input type="text" id="companyName" name="entry.1722258034" class="form-text" placeholder="株式会社オブジェクティブコア">
 
             <div class="caption-area">
               <p class="caption text-left">企業様のお問い合わせのみご入力お願いします</p>
@@ -89,7 +96,7 @@
 
           <div class="form-area is-last">
             <div class="checkbox-area">
-              <input type="checkbox" name="privacy-policy" id="privacy-policy">
+              <input type="checkbox" name="entry.1978479273" id="privacy-policy">
               <label for="privacy-policy">個人情報の取扱いに同意する</label>
             </div>
           </div>
@@ -100,12 +107,16 @@
         </form>
       </div>
     </main>
+
+    
+
+    <iframe name="hiddenFrame" id="hiddenFrame" style="display: none"></iframe>
   </div>
 
 
-  <script>
+  <!-- <script>
     window.onload = () => {
       location.href= './index.html';
     }
-  </script>
+  </script> -->
 </body>
