@@ -83,6 +83,13 @@ p.caption.error-message.is-error {
   display: block;
 }
 
+p.policy-text {
+  letter-spacing: normal;
+  font-size: 1rem;
+  text-align: start;
+  margin-top: 0;
+}
+
 p span.text-not-line {
   text-decoration: line-through;
 }

@@ -154,6 +154,13 @@ p {
     }
   }
 
+  &.policy-text {
+    letter-spacing: normal;
+    font-size: 1rem;
+    text-align: start;
+    margin-top: 0;
+  }
+
   span.text-not-line {
     text-decoration: line-through;
   }
