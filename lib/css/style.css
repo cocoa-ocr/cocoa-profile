@@ -2,6 +2,7 @@
 :root {
   --primary: #f48fb1 !important;
   --success:#f48fb1 !important;
+  --error-background: #FAE9EF !important;
   --primary-dark: #ec407a;
   --secondary: #9fa8da !important;
   --secondary-dark: #5c6bc0 !important;
@@ -71,6 +72,15 @@ p.caption.text-left {
   letter-spacing: .16em;
   font-size: 1rem;
   text-align: left;
+}
+
+p.caption.error-message {
+  color: var(--red);
+  display: none;
+}
+
+p.caption.error-message.is-error {
+  display: block;
 }
 
 p span.text-not-line {
@@ -832,6 +842,11 @@ details.more[open] summary::before {
   outline: none;
 }
 
+.form .form-area .form-text.is-error {
+  border: 1px solid var(--red);
+  background-color: var(--error-background);
+}
+
 .form .form-area .textarea {
   width: 100%;
   padding: 0.375rem 0.75rem;
@@ -848,6 +863,11 @@ details.more[open] summary::before {
 
 .form .form-area .textarea:focus-visible {
   outline: none;
+}
+
+.form .form-area .textarea.is-error {
+  border: 1px solid var(--red);
+  background-color: var(--error-background);
 }
 
 .form .form-area .radio-area .form-label {
@@ -884,7 +904,11 @@ details.more[open] summary::before {
           justify-content: center;
 }
 
-.form .checkbox-area input {
+.form .checkbox-area .checkbox-item {
+  display: block;
+}
+
+.form .checkbox-area .checkbox-item input {
   position: relative;
   bottom: -1px;
   accent-color: var(--primary-dark);
