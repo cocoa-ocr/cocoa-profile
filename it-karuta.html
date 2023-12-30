@@ -1,0 +1,107 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Cocoa Official Fun Site | ITかるた</title>
+  <meta name="description" content="天才プログラマー、ココアちゃんのファンサイトです。ITかるた">
+  <meta name="author" content="Cocoa-Fun">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nikukyu.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cherry+Swash&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./lib/css/style.css">
+  <script type="text/javascript" src="http://twitter.com/intent/tweet?http://platform.twitter.com/widgets.js"></script>
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="apple-touch-icon" type="image/png" href="./apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="./icon-192x192.png">
+
+  <meta property="og:title" content="ITかるた！">
+  <meta property="og:description" content="新年あけましておめでとうございます！ITかるたで暇をつぶそう！">
+  <meta property="og:url" content="https://cocoa-ocr.github.io/cocoa-profile/it-karuta">
+  <meta property="og:image" content="https://cocoa-ocr.github.io/cocoa-profile/lib/img/it-karuta/omikuji_cocoa.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@obg_ocr">
+  <meta name="tiwtter:title" content="ITかるた">
+  <meta name="twitter:description" content="ココアちゃんの去年の出来事！？ITかるたで新年を乗り越えよう！">
+  <meta name="twitter:image" content="https://cocoa-ocr.github.io/cocoa-profile/lib/img/it-karuta/omikuji_cocoa.png">
+</head>
+
+<body>
+  <main class="container">
+    <div class="card">
+      <div class="game-area">
+        <h3 class="headline-text">ITかるた</h3>
+        <p>新年あけましておめでとうございます！ITかるたで正月の稼働に備えよう！？</p>
+        <p>PCの方がプレイしやすいよ★</p>
+        <div class="game-window">
+          <h2 class="headline-text game-title">ITかるた</h2>
+
+          <div id="images">
+            <!--image dynamic renderer-->
+          </div>
+        </div>
+        <div class="game-button-area">
+          <button id="startCPU" class="button">CPUでゲームスタート</button>
+        </div>
+
+        <dialog id="answerDialog" class="karuta-dialog">
+          <h3 id="answerResult" class="headline-text"></h3>
+          <h3 id="answerChar" class="headline-text"></h3>
+          <img src="" id="answerImage">
+          <p id="answerText"></p>
+          <p class="caption" id="answerDescription"></p>
+          <p class="obg-link is-hide">
+            <a target="_blank" href="https://ob-g.com/">OBGのWebサイト</a>
+          </p>
+          <div class="game-button-area">
+            <button id="next" class="button">次へ</button>
+          </div>
+        </dialog>
+
+        <dialog id="gameResult" class="karuta-dialog">
+          <h3 class="headline-text success">結果</h3>
+          <h3 class="headline-text">全<span id="answerLength"></span>問中、<span id="successCount"></span>問正解しました！</h3>
+          <p id="gameResultDetail">
+            正解数：<span id="correct"></span>, 不正解数: <span id="fail"></span>, CPU回答数:<span id="cpuAnswer"></span>
+          </p>
+
+          <img src="./lib/img/it-karuta/omikuji_cocoa.png" >
+
+          <div class="game-button-area">
+            <a id="shareLink" href="">
+              <button class="button">このページをシェア</button>
+            </a>
+            <button id="retry" class="button">もう一度挑戦する！</button>
+          </div>
+          <div class="game-button-area">
+            <a
+              target="_blank"
+              class="button is-link"
+              href="https://mayegg4869.github.io/Portfolio/2024_omikuji/"
+            >今年の運勢を占おう！</a>
+          </div>
+        </dialog>
+      </div>
+      <div class="it-karuta-control-panel is-hide">
+        <p class="count" id="readyCount">10</p>
+        <p class="guide">すぐにゲームを開始することも出来るよ！配置を覚えてね！</p>
+        
+        <div class="button-area">
+          <button id="forceStart" class="secondary-button">Start</button>
+        </div>
+
+        <h2 id="text" class="karuta-text is-hide headline-text"></h2>
+      </div>
+    </div>
+  </main>
+  <script src="./lib/js/it-karuta.js"></script>
+</body>
+
+</html>

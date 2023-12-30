@@ -13,6 +13,20 @@
   --link-color: #0d47a1;
   --link-color-bg: #bbdefb;
   font-size: 62.5%;
+
+  --show-color: #fff;
+}
+
+$breakpoint: (
+  sp: 'screen and (max-width: 767px)',
+  tab: 'screen and (min-width: 768px)',
+  pc: 'screen and (min-width: 992px)'
+);
+
+@mixin mediaQuery($device) {
+  @media #{map-get($breakpoint, $device)} {
+    @content;
+  }
 }
 
 /**mixins----- */
@@ -391,6 +405,10 @@ details.more {
   &:disabled {
     @include disabled-button();
   }
+
+  &.is-link {
+    text-decoration: none;
+  }
 }
 
 .highlight {
@@ -442,6 +460,59 @@ details.more {
 
       &.is-hide {
         @include hide();
+      }
+    }
+
+    #images {
+      @include mediaQuery('pc') {
+        display: grid;
+        grid-template-columns: repeat(4, 25%);
+      }
+
+      .image-container {
+        cursor: pointer;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        border-radius: 4px;
+
+        &.answered {
+          cursor: no-drop;
+          filter:grayscale(100%);
+          &:hover {
+            opacity: 1;
+          }
+
+        }
+
+        &:hover {
+          opacity: 0.7;
+        }
+
+        .karuta {
+          object-fit: scale-down;
+          width: 100%;
+          height: 300px;
+        }
+
+        &::after {
+          content: attr(data-char);
+          position: absolute;
+          top: 32px;
+          left: 32px;
+          width: 20px;
+          height: 20px;
+          padding: 16px;
+          line-height: 1;
+          text-align: center;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          border-radius: 50%;
+          background-color: rgba(255,255,255,1);
+          font-weight: 300;
+          font-size: 16px;
+        }
+
       }
     }
 
@@ -518,6 +589,57 @@ details.more {
       &.is-hide {
         @include hide();
       }
+    }
+  }
+
+  dialog.karuta-dialog {
+
+    &#answerDialog {
+      #answerResult {
+        &.fail {
+          color: var(--red);
+        }
+  
+        &.success {
+          color: var(--success);
+        }
+      }
+
+      #answerChar {
+        font-weight: bold;
+      }
+
+      .obg-link {
+        &.is-hide {
+          @include hide;
+        }
+      }
+    }
+
+
+
+
+    &#gameResult {
+      min-width: 380px;
+      max-width: 90%;
+    }
+
+    img {
+      object-fit: scale-down;
+      width: 100%;
+      height: 300px;
+    }
+
+
+    border: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+    &::backdrop {
+      background: rgba(0 0 0 / 32%);
+    }
+
+    &:focus-visible {
+      outline: none;
     }
   }
 
@@ -614,6 +736,50 @@ details.more {
   }
 }
 
+.it-karuta-control-panel {
+  position: sticky;
+  padding: 16px;
+  bottom: 0;
+  z-index: 500;
+  background-color: var(--secondary-active);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  font-size: 30px;
+  letter-spacing: 0.16em;
+  color: #fff;
+
+  &.is-hide {
+    @include hide;
+  }
+
+  .guide {
+    &.is-hide {
+      @include hide;
+    }
+  }
+
+  .count {
+    &.is-hide {
+      @include hide;
+    }
+  }
+
+  .button-area {
+    @include contents-center();
+
+    #forceStart {
+      &.is-hide {
+        @include hide;
+      }
+    }
+  }
+
+  .karuta-text {
+    &.is-hide {
+      @include hide;
+    }
+  }
+}
+
 
 .snow-balls {
   display: none;
@@ -626,7 +792,7 @@ details.more {
     top: -250px;
     left: 0;
     border-radius: 50%;
-    background: #fff;
+    background: var(--show-color);
     opacity: 0.9;
     z-index: 500;
 
@@ -635,20 +801,20 @@ details.more {
       height: 10px;
       filter: blur(2px);
       box-shadow:
-        5vw -40px 0 #fff,
-        10vw 150px #fff,
-        15vw -230px #fff,
-        22vw 240px #fff,
-        30vw 120px #fff,
-        35vw -180px #fff,
-        44vw 240px #fff,
-        50vw 0 #fff,
-        60vw 180px #fff,
-        68vw 40px #fff,
-        74vw -130px #fff,
-        81vw -240px #fff,
-        88vw 100px #fff,
-        95vw 60px #fff;
+        5vw -40px 0 var(--show-color),
+        10vw 150px var(--show-color),
+        15vw -230px var(--show-color),
+        22vw 240px var(--show-color),
+        30vw 120px var(--show-color),
+        35vw -180px var(--show-color),
+        44vw 240px var(--show-color),
+        50vw 0 var(--show-color),
+        60vw 180px var(--show-color),
+        68vw 40px var(--show-color),
+        74vw -130px var(--show-color),
+        81vw -240px var(--show-color),
+        88vw 100px var(--show-color),
+        95vw 60px var(--show-color);
       animation: fall 12s linear infinite;
     }
 
@@ -657,10 +823,10 @@ details.more {
       height: 10px;
       filter: blur(2px); 
       box-shadow:
-        7vw 220px 0 #fff,
-        35vw 20px #fff,
-        68vw 100px #fff,
-        93vw -190px #fff;
+        7vw 220px 0 var(--show-color),
+        35vw 20px var(--show-color),
+        68vw 100px var(--show-color),
+        93vw -190px var(--show-color);
       animation: fall 12.5s linear infinite;
       animation-delay: 6s; 
     }
@@ -670,12 +836,12 @@ details.more {
       height: 14px;
       filter: blur(3px); 
       box-shadow:
-        12vw 5px 0 #fff,
-        32vw -100px #fff,
-        45vw -180px #fff,
-        68vw 40px #fff,
-        77vw 65px #fff,
-        94vw 230px #fff;
+        12vw 5px 0 var(--show-color),
+        32vw -100px var(--show-color),
+        45vw -180px var(--show-color),
+        68vw 40px var(--show-color),
+        77vw 65px var(--show-color),
+        94vw 230px var(--show-color);
       animation: fall 10s linear infinite; 
       animation-delay: 6s;
     }
@@ -685,8 +851,8 @@ details.more {
       height: 20px;
       filter: blur(8px);
       box-shadow:
-        40vw -200px #fff,
-        80vw 230px #fff;
+        40vw -200px var(--show-color),
+        80vw 230px var(--show-color);
       animation: fall 7s linear infinite;
       animation-delay: 4s;
     }
