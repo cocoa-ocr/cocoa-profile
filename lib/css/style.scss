@@ -659,6 +659,12 @@ details.more {
     @include contents-center();
     margin-top:16px;
     margin-bottom:16px;
+
+    .karuta-start {
+      &.is-hide {
+        @include hide
+      }
+    }
   }
 }
 

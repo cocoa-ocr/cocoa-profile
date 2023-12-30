@@ -566,6 +566,9 @@ details.more[open] summary::before {
   margin-top: 16px;
   margin-bottom: 16px;
 }
+.game-area .game-button-area .karuta-start.is-hide {
+  display: none;
+}
 
 *::-webkit-scrollbar {
   width: 5px;
